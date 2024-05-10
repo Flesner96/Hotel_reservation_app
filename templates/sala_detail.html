@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informacje o sali</title>
+</head>
+<body>
+    <h1>Informacje o sali</h1>
+    <h2>{{ sala.name }}</h2>
+    <p>Pojemność: {{ sala.capacity }}</p>
+    <p>Dostępność rzutnika: {% if sala.projector_availability %}Tak{% else %}Nie{% endif %}</p>
+    
+    <h2>Przyszłe rezerwacje:</h2>
+    <ul>
+        {% for rezerwacja in rezerwacje %}
+            <li>{{ rezerwacja.data }} - {{ rezerwacja.komentarz }}</li>
+        {% empty %}
+            <li>Brak rezerwacji</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'modify_room' sala.id %}">Edytuj salę</a>
+    <a href="{% url 'reserve_room' sala.id %}">Zarezerwuj salę</a>
+    <a href="{% url 'delete_room' sala.id %}">Usuń salę</a>
+</body>
+</html>

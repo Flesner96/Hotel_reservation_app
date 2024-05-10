@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezerwacja sali</title>
+</head>
+<body>
+    <h1>Rezerwacja sali</h1>
+   <form method="post">
+    {% csrf_token %}
+    <label for="id_komentarz">Komentarz:</label><br>
+    <textarea id="id_komentarz" name="komentarz" rows="4" cols="50"></textarea><br>
+    <label for="id_data">Data:</label><br>
+    <input type="date" id="id_data" name="data"><br>
+    <button type="submit">Zarezerwuj</button>
+</form>
+
+</body>
+</html>
