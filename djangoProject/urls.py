@@ -17,6 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from reservation_app import views
+
 urlpatterns = [
+    path('', views.index, name='index'),
+    path('rooms/', views.lista_sal, name='lista_sal'),
+    path('room/new/', views.add_room, name='add_room'),
+    path('room/<int:id>/', views.sala_detail, name='sala_detail'),
+    path('room/<int:id>/delete/', views.delete_room, name='delete_room'),
+    path('room/<int:id>/modify/', views.modify_room, name='modify_room'),
+    path('room/reserve/<int:id>/', views.reserve_room, name='reserve_room'),
     path('admin/', admin.site.urls),
 ]
